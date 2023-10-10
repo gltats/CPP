@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 19:56:36 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/10 18:51:35 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/10/10 18:33:21 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/10/10 18:39:07 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cctype>
-#include <iostream>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-int main(int argc, char **argv)
+class phonebook
 {
-    if(argc >= 2)
-    {
-        for(int i = 1; argv[i]; i++)
-        {
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << (char)std::toupper(argv[i][j]);
-                std::cout << " ";               
-        }
-    }
-    else
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    std::cout << std::endl;
-    return(0);
-}
+	private:
+
+	public:
+};
+
+
+#endif 
