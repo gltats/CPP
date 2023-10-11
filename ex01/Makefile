@@ -34,21 +34,22 @@ NAME = phonebook
 
 # Compiler and flags
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 
 #timing
 TIMER = sleep 0.5s
 
 # Folders & files
-HEADER_FILES = phonebook contact
-FILES = phonebook contact
+FILES = phonebook main
+HEADER_FILES = phonebook
+
 
 # Source files
-SRC = $(addsuffix .cpp, $(addprefix srcs/, $(FILES)))
+SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
 HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
 
 # Object files
-OBJ = $(SRC=.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
@@ -57,7 +58,7 @@ $(NAME): $(OBJ)
 	@echo "\n"
 	@echo "$(EMOJI_CLOCK)$(ORANGE)Compiling...$(RESET)"
 	@$(TIMER)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
 
 %.o: %.cpp
