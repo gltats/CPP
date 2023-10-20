@@ -40,8 +40,8 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 TIMER = sleep 0.5s
 
 # Folders & files
-FILES = phonebook main
-HEADER_FILES = phonebook
+FILES = phonebook contact main
+HEADER_FILES = phonebook contact
 
 
 # Source files
