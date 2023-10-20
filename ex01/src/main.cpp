@@ -82,7 +82,7 @@ int main() {
                 if (!(std::cin >> index)) {
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    std::cout << "\033[0;31mThe input was not valid. Number of " << attempts + 1 << " of 3 \033[0m" << std::endl;
+                    std::cout << "\033[0;31mThe input was not valid. Attempt " << attempts + 1 << " of 3 \033[0m" << std::endl;
                     attempts++;
                 } else {
            			if (phoneBook.getNumContacts() >= 7) {

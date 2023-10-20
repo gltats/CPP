@@ -60,10 +60,4 @@ void Contact::display(int index)
     << std::setw(10) << LastName.substr(0, 10) << "|" 
     << std::setw(10) << NickName.substr(0, 10) << "|" 
 	<< RESET << std::endl;
-	std::cout << BLUE 
-	<< "|"
-	<< std::setw(5)
-	<< std::string(43, '-') 
-	<< "|"
-	<< RESET << std::endl;
 }

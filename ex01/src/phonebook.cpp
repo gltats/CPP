@@ -52,9 +52,9 @@ void PhoneBook::displayContact(int index)
 void PhoneBook::displayAllContact(int index)
 {
 	contactHeader();
-	std::cout << BLUE <<  "|";
 	while(index < numContacts)
 	{
+		std::cout << BLUE <<  "|";
 		contacts[index].display(index);
 		index++;
 	}
