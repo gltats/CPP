@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:33:30 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 15:57:48 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:01:46 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ void Contact::read()
 void Contact::display(int index)
 {
 	std::cout << BLUE 
-	<< std::setw(5) 
-	<< std::string(40, '-') 
-	<< "|"
+	<< std::setw(5)
+	<< std::string(38, '-') << "|"
 	<< RESET << std::endl;
     std::cout << BLUE
 	<<  "|"
@@ -62,8 +61,9 @@ void Contact::display(int index)
     << std::setw(10) << NickName.substr(0, 10) << "|" 
 	<< RESET << std::endl;
 	std::cout << BLUE 
-	<< std::setw(5) 
-	<< std::string(40, '-') 
+	<< "|"
+	<< std::setw(5)
+	<< std::string(38, '-') 
 	<< "|"
 	<< RESET << std::endl;
 }

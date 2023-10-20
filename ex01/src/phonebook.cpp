@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:57:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 15:57:57 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:01:08 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ PhoneBook::PhoneBook()
 void PhoneBook::initialMsg()
 {
 	std::cout << std::endl;
-	std::cout << GREEN << "        Welcome to PhoneBook:" << RESET << std::endl;
 	std::cout << GREEN << "Please enter a command (ADD, SEARCH, EXIT):" << RESET << std::endl;
 	std::cout << BLUE << "INFO:	" << std::endl;
 	std::cout << BLUE << "**********************************************" << RESET << std::endl;
@@ -36,12 +35,9 @@ void PhoneBook::initialMsg()
 
 void PhoneBook::contactHeader()
 {
-	std::cout << BLUE << std::setw(5) <<"AGENDA:" << RESET << std::endl;
+	std::cout << PINK << "AGENDA:" << RESET << std::endl;
 	std::cout << BLUE 
-	<< std::setw(5) 
-	<< std::string(40, '-') 
-	<< "|"
-	<< RESET << std::endl;
+	<< "|" << std::string(38, '-') << "|" << RESET << std::endl;
     std::cout << BLUE 
 	<<  "|"
 	<< std::setw(5) << "Index" << "|"

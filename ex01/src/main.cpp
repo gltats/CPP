@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:34:49 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 15:25:35 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/20 19:55:44 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
 	PhoneBook phoneBook;
     std::string command;
-
+	std::cout << GREEN << std::setw(5) << "Welcome to PhoneBook:" << RESET << std::endl;
 	phoneBook.initialMsg();
 	while(true)
 	{
