@@ -14,11 +14,7 @@
 
 PhoneBook::PhoneBook()
 	: numContacts(0)
-{
-	// for (int i = 0; maxContacts > i; i++) {
-	// 	contacts[i].reset();
-	// }
-}
+{}
 
 void PhoneBook::initialMsg()
 {
@@ -37,10 +33,10 @@ void PhoneBook::contactHeader()
 {
 	std::cout << PINK << "AGENDA:" << RESET << std::endl;
 	std::cout << BLUE 
-	<< "|" << std::string(38, '-') << "|" << RESET << std::endl;
+	<< "|" << std::string(43, '-') << "|" << RESET << std::endl;
     std::cout << BLUE 
 	<<  "|"
-	<< std::setw(5) << "Index" << "|"
+	<< std::setw(10) << "Index" << "|"
     << std::setw(10) << "FirstName" << "|"
     << std::setw(10) << "LastName" << "|" 
     << std::setw(10) << "NickName" <<  "|"
@@ -53,6 +49,18 @@ void PhoneBook::displayContact(int index)
 	contacts[index].display(index);
 }
 
+void PhoneBook::displayAllContact(int index)
+{
+	contactHeader();
+	std::cout << BLUE <<  "|";
+	while(index < numContacts)
+	{
+		contacts[index].display(index);
+		index++;
+	}
+	
+}
+
 void PhoneBook::addContact()
 {
 	if (numContacts < maxContacts) {
@@ -61,18 +69,40 @@ void PhoneBook::addContact()
 	}
 }
 
-void PhoneBook::searchContact(int index)
-{
-	// numContacts;
-    if (index >= 0 && index < numContacts) 
-	{
-		contactHeader();
-        displayContact(index);
-		PhoneBook::initialMsg();
-    } 
-	else 
-	{
-        std::cout << "No contact has been found\n";
-		PhoneBook::initialMsg();
+void PhoneBook::searchContact(int index) {
+    if (index >= 0 && index < numContacts) {
+        if (numContacts <= 8) {
+            contactHeader();
+            displayContact(index);
+        } else {
+            // If there are more than 8 contacts, remove the oldest and add a new one at index 0
+            for (int i = 0; i < numContacts - 1; i++) {
+                contacts[i] = contacts[i + 1];
+            }
+            contacts[7].reset(); 
+            contacts[0] = contacts[index];
+            numContacts = 8;
+
+            contactHeader();
+            displayContact(0);
+        }
+        initialMsg();
+    } else {
+        std::cout << "No contact has been found" << std::endl;
+        initialMsg();
     }
 }
+
+int PhoneBook::getNumContacts() const {
+    return numContacts;
+}
+
+void PhoneBook::deleteOldestAndAddAtIndexZero(int index) {
+    if (maxContacts  >= 7) {
+        for (int i = 6; i > 0; i--) {
+            contacts[i] = contacts[i - 1];
+        }
+        contacts[0] = contacts[index];
+    }
+}
+

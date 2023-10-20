@@ -20,6 +20,7 @@
 
 #include "contact.hpp"
 #include <iostream>
+#include <limits>
 
 class PhoneBook {
 public:
@@ -29,6 +30,9 @@ public:
 	void addContact();
     // void addContact(const Contact& contact);
 	void displayContact(int index);
+    int getNumContacts() const;
+    void deleteOldestAndAddAtIndexZero(int index);
+    void displayAllContact(int index);
 private:
     void contactHeader();
     static const int maxContacts = 8; // Define the maximum number of contacts

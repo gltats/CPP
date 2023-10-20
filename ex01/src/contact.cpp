@@ -14,13 +14,13 @@
 
 Contact::Contact() {}
 
-// void Contact::reset() {
-// 	FirstName.clear();
-// 	LastName.clear();
-// 	NickName.clear();
-// 	PhoneNumber.clear();
-// 	DarkestSecret.clear();
-// }
+void Contact::reset() {
+	FirstName.clear();
+	LastName.clear();
+	NickName.clear();
+	PhoneNumber.clear();
+	DarkestSecret.clear();
+}
 
 void Contact::read()
 {
@@ -51,11 +51,11 @@ void Contact::display(int index)
 {
 	std::cout << BLUE 
 	<< std::setw(5)
-	<< std::string(38, '-') << "|"
+	<< std::string(43, '-') << "|"
 	<< RESET << std::endl;
     std::cout << BLUE
 	<<  "|"
-	<< std::setw(5) << index  << "|"
+	<< std::setw(10) << index  << "|"
     << std::setw(10) << FirstName.substr(0, 10) << "|"
     << std::setw(10) << LastName.substr(0, 10) << "|" 
     << std::setw(10) << NickName.substr(0, 10) << "|" 
@@ -63,61 +63,7 @@ void Contact::display(int index)
 	std::cout << BLUE 
 	<< "|"
 	<< std::setw(5)
-	<< std::string(38, '-') 
+	<< std::string(43, '-') 
 	<< "|"
 	<< RESET << std::endl;
 }
-
-// //setter
-// void Contact::setFirstName(std::string value)
-// {
-// 	FirstName = value;
-// }
-
-// void Contact::setLastName(std::string value)
-// {
-// 	LastName = value;
-// }
-
-// void Contact::setNickName(std::string value)
-// {
-// 	NickName = value;
-// }
-
-// void Contact::setPhoneNumber(std::string value)
-// {
-// 	PhoneNumber = value;
-// }
-
-// void Contact::setDarkestSecret(std::string value)
-// {
-// 	DarkestSecret = value;
-// }
-
-
-
-// //getters
-// std::string Contact::getFirstName()
-// {
-//     return FirstName;
-// }
-
-// std::string Contact::getLastName()
-// {
-//     return LastName;
-// }
-
-// std::string Contact::getNickName()
-// {
-//     return NickName;
-// }
-
-// std::string Contact::getPhoneNumber()
-// {
-//     return PhoneNumber;
-// }
-
-// std::string Contact::getDarkestSecret()
-// {
-//     return DarkestSecret;
-// }
