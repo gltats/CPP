@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 18:33:30 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 20:01:46 by tgomes-l         ###   ########.fr       */
-/*                                                                            */
+/*									    */
+/*							:::      ::::::::   */
+/*   contact.cpp					:+:      :+:    :+:   */
+/*						    +:+ +:+	 +:+     */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+	*/
+/*						+#+#+#+#+#+   +#+	   */
+/*   Created: 2023/10/13 18:33:30 by tgomes-l	  #+#    #+#	     */
+/*   Updated: 2023/10/20 23:33:07 by tgomes-l	 ###   ########.fr       */
+/*									    */
 /* ************************************************************************** */
 
 #include "contact.hpp"
@@ -39,7 +39,7 @@ void Contact::read()
 	std::cout << BLUE << "Phone number:" << RESET << std::endl;
 	std::cin >> PhoneNumber;
 	std::cout << PINK << "Phone Number:" << PhoneNumber << RESET << std::endl;
-	
+	// Input validation for PhoneNumber
 	std::cout << BLUE << "Darkest Secret:" << RESET << std::endl;
 	std::cin >> DarkestSecret;
 	std::cout << PINK << "Darkest Secret:" << DarkestSecret << RESET << std::endl;

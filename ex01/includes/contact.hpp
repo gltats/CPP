@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:29:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 15:45:35 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/20 23:38:17 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <ctype.h>
 
 //pb reference variable
 class Contact

@@ -37,7 +37,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 
 #timing
-TIMER = sleep 0.5s
+# TIMER = sleep 0.5s
 
 # Folders & files
 FILES = phonebook contact main
@@ -57,24 +57,20 @@ $(NAME): $(OBJ)
 	@echo "$(CYAN)$$T_HEADER$(RESET)"
 	@echo "\n"
 	@echo "$(EMOJI_CLOCK)$(ORANGE)Compiling...$(RESET)"
-	@$(TIMER)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
 
 %.o: %.cpp
 	@echo "$(ORANGE)Generating objects... $@$(RESET)"
-	@$(TIMER)
 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
-	@$(TIMER)
 	@rm -f $(OBJ)
 	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
 
 fclean: clean
 	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
-	@$(TIMER)
 	@rm -f $(NAME)
 	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
 
