@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:33:24 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/15 21:22:45 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:17:48 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
     // void addContact(const Contact& contact);
 	void displayContact(int index);
     int getNumContacts() const;
-    void deleteOldestAndAddAtIndexZero(int index);
+    void deleteOldestAndAddAtIndexZero();
     void displayAllContact(int index);
 private:
     void contactHeader();

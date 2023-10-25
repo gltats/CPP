@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:57:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 20:01:08 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:44:51 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,9 @@ void PhoneBook::searchContact(int index) {
             contactHeader();
             displayContact(index);
         } else {
-            // If there are more than 8 contacts, remove the oldest and add a new one at index 0
             for (int i = 0; i < numContacts - 1; i++) {
                 contacts[i] = contacts[i + 1];
-            }
+            } 
             contacts[7].reset(); 
             contacts[0] = contacts[index];
             numContacts = 8;
@@ -97,12 +96,17 @@ int PhoneBook::getNumContacts() const {
     return numContacts;
 }
 
-void PhoneBook::deleteOldestAndAddAtIndexZero(int index) {
-    if (maxContacts  >= 7) {
-        for (int i = 6; i > 0; i--) {
-            contacts[i] = contacts[i - 1];
+void PhoneBook::deleteOldestAndAddAtIndexZero() {
+    if (numContacts == maxContacts) {
+        // Delete the oldest contact by shifting all contacts one position forward
+        for (int i = 0; i < numContacts - 1; i++) {
+            contacts[i] = contacts[i + 1];
         }
-        contacts[0] = contacts[index];
+        numContacts--; // Decrement the count of contacts to maintain the limit of maxContacts
     }
+    // Add the new contact at index 0
+    Contact newContact;
+    newContact.read();
+    contacts[numContacts] = newContact;
+    numContacts++;
 }
-

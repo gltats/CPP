@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+        */
+/*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:29:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/20 23:38:17 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:51:57 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class Contact
 {
 	public:
 		Contact();
-		// Contact(PhoneBook* pb); 
 		void read();
 		void set(
 			const std::string &first_name,
@@ -36,24 +35,11 @@ class Contact
 			const std::string &phone_number,
 			const std::string &darkest_secret
 		);
-
 		void reset();
 		void display(int index);
-		
-		// void displayContact(int index);
-		//setters and getters
-		// void setFirstName(std::string name);
-		// std::string getFirstName();
-		// void setLastName(std::string name);
-		// std::string getLastName();
-		// void setNickName(std::string name);
-		// std::string getNickName();
-		// void setPhoneNumber(std::string name);
-		// std::string getPhoneNumber();
-		// void setDarkestSecret(std::string name);
-		// std::string getDarkestSecret();
 	private:
-		// PhoneBook* phoneBook;
+		bool isLettersOnly(const std::string& str);
+		bool isNumbersOnly(const std::string& str);
 		std::string FirstName;
 		std::string LastName;
 		std::string NickName;

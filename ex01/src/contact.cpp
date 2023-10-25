@@ -22,30 +22,67 @@ void Contact::reset() {
 	DarkestSecret.clear();
 }
 
-void Contact::read()
-{
-	std::cout << BLUE << "First name:" << RESET << std::endl;
-	std::cin >> FirstName;
-	std::cout << PINK << "First name:" << FirstName << RESET << std::endl;
-	
-	std::cout << BLUE << "Last name:" << RESET << std::endl;
-	std::cin >> LastName;
-	std::cout << PINK << "Last name:" << LastName << RESET << std::endl;
-	
-	std::cout << BLUE << "Nickname:" << RESET << std::endl;
-	std::cin >> NickName;
-	std::cout << PINK << "Nickname:" << NickName << RESET << std::endl;
+// Function to check if a string contains only letters
+bool Contact::isLettersOnly(const std::string& str) {
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+        if (!isalpha(*it)) {
+            return false; // Contains a non-letter character
+        }
+    }
+    return true; // Contains only letters
+}
 
-	std::cout << BLUE << "Phone number:" << RESET << std::endl;
-	std::cin >> PhoneNumber;
-	std::cout << PINK << "Phone Number:" << PhoneNumber << RESET << std::endl;
-	// Input validation for PhoneNumber
+// Function to check if a string contains only numbers
+bool Contact::isNumbersOnly(const std::string& str) {
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+        if (!isdigit(*it)) {
+            return false; // Contains a non-digit character
+        }
+    }
+    return true; // Contains only digits
+}
+
+
+void Contact::read() {
+    std::cout << BLUE << "First name: " << RESET << std::endl;
+    std::cin >> FirstName;
+    while (!isLettersOnly(FirstName)) {
+        std::cout << "\033[0;31mFirst name can only contain letters. Please enter a valid name:\033[0m" << std::endl;
+        std::cin >> FirstName;
+    }
+    std::cout << PINK << "First name: " << FirstName << RESET << std::endl;
+	//Lastname
+    std::cout << BLUE << "Last name: " << RESET << std::endl;
+    std::cin >> LastName;
+    while (!isLettersOnly(LastName)) {
+        std::cout << "\033[0;31mLast name can only contain letters. Please enter a valid name:\033[0m" << std::endl;
+        std::cin >> LastName;
+    }
+    std::cout << PINK << "Last name: " << LastName << RESET << std::endl;
+	//Nickname
+    std::cout << BLUE << "Nickname: " << RESET << std::endl;
+    std::cin >> NickName;
+    while (!isLettersOnly(NickName)) {
+        std::cout << "\033[0;31mNickname can only contain letters. Please enter a valid name:\033[0m" << std::endl;
+        std::cin >> NickName;
+    }
+    std::cout << PINK << "Nickname: " << NickName << RESET << std::endl;
+	//Phonenumber
+    std::cout << BLUE << "Phone number: " << RESET << std::endl;
+    std::cin >> PhoneNumber;
+    while (!isNumbersOnly(PhoneNumber)) {
+        std::cout << "\033[0;31mPhone number can only contain numbers. Please enter a valid number:\033[0m" << std::endl;
+        std::cin >> PhoneNumber;
+    }
+    std::cout << PINK << "Phone Number: " << PhoneNumber << RESET << std::endl;
+	//Darkest Secret
 	std::cout << BLUE << "Darkest Secret:" << RESET << std::endl;
 	std::cin >> DarkestSecret;
 	std::cout << PINK << "Darkest Secret:" << DarkestSecret << RESET << std::endl;
-
-	std::cout << BLUE << "****Contact has been added****" << RESET << std::endl;
+	//added
+    std::cout << BLUE << "****Contact has been added****" << RESET << std::endl;
 }
+
 
 void Contact::display(int index)
 {
