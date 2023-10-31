@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:33:24 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/25 15:17:48 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:38:10 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PhoneBook {
 public:
 	PhoneBook();  // Constructor
     void initialMsg();
-    void searchContact(int index);
+    int searchContact(int index);
 	void addContact();
     // void addContact(const Contact& contact);
 	void displayContact(int index);

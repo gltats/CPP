@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:57:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/25 15:44:51 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:38:34 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void PhoneBook::addContact()
 	}
 }
 
-void PhoneBook::searchContact(int index) {
+int PhoneBook::searchContact(int index) {
     if (index >= 0 && index < numContacts) {
         if (numContacts <= 8) {
             contactHeader();
@@ -90,6 +90,7 @@ void PhoneBook::searchContact(int index) {
         std::cout << "No contact has been found" << std::endl;
         initialMsg();
     }
+	return(index);
 }
 
 int PhoneBook::getNumContacts() const {

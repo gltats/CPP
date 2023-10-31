@@ -86,15 +86,40 @@ void Contact::read() {
 
 void Contact::display(int index)
 {
-	std::cout << BLUE 
-	<< std::setw(5)
-	<< std::string(43, '-') << "|"
-	<< RESET << std::endl;
+    std::cout << BLUE 
+    << std::setw(5)
+    << std::string(43, '-') << "|"
+    << RESET << std::endl;
     std::cout << BLUE
-	<<  "|"
-	<< std::setw(10) << index  << "|"
-    << std::setw(10) << FirstName.substr(0, 10) << "|"
-    << std::setw(10) << LastName.substr(0, 10) << "|" 
-    << std::setw(10) << NickName.substr(0, 10) << "|" 
-	<< RESET << std::endl;
+    <<  "|"
+    << std::setw(10) << index  << "|";
+
+    // Display FirstName
+    std::string truncatedFirstName = FirstName.substr(0, 9);
+    if (FirstName.length() > 9) {
+        truncatedFirstName += ".";
+    }
+    std::cout << std::setw(10) << truncatedFirstName << "|";
+
+    // Display LastName
+    std::string truncatedLastName = LastName.substr(0, 9);
+    if (LastName.length() > 9) {
+        truncatedLastName += ".";
+    }
+    std::cout << std::setw(10) << truncatedLastName << "|";
+
+    // Display NickName
+    std::string truncatedNickName = NickName.substr(0, 9);
+    if (NickName.length() > 9) {
+        truncatedNickName += ".";
+    }
+    std::cout << std::setw(10) << truncatedNickName << "|";
+
+	std::string truncatedPhoneNumber = PhoneNumber.substr(0, 9);
+    if (PhoneNumber.length() > 9) {
+        truncatedPhoneNumber += ".";
+    }
+    std::cout << std::setw(10) << truncatedPhoneNumber << "|";
+
+    std::cout << RESET << std::endl;
 }
