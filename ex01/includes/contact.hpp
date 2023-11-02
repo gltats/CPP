@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:29:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/25 15:51:57 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:44:58 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ctype.h>
+#include <sstream> 
 
 //pb reference variable
 class Contact

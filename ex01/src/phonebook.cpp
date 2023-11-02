@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:57:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/10/31 16:38:34 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:20:17 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,33 @@ void PhoneBook::addContact()
 }
 
 int PhoneBook::searchContact(int index) {
-    if (index >= 0 && index < numContacts) {
-        if (numContacts <= 8) {
+    int attempts = 0;
+	 if (numContacts == 0) {
+        std::cout << "No contacts in the phonebook." << std::endl;
+        return (index);
+    }
+	displayAllContact(index);
+    while (attempts < 3) {
+        std::cout << "Enter the contact index:" << std::endl;
+        if (!(std::cin >> index)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "\033[0;31mThe input was not valid. Attempt " << attempts + 1 << " of 3 \033[0m" << std::endl;
+            attempts++;
+        } else if (index >= 0 && index < numContacts) {
+			std::cout << "Found" << std::endl;
             contactHeader();
             displayContact(index);
+            return (index);  // Exit the function with a valid index
         } else {
-            for (int i = 0; i < numContacts - 1; i++) {
-                contacts[i] = contacts[i + 1];
-            } 
-            contacts[7].reset(); 
-            contacts[0] = contacts[index];
-            numContacts = 8;
-
-            contactHeader();
-            displayContact(0);
+            std::cout << "No contact has been found" << std::endl;
+            return (index);  // Exit the function with an out-of-range index
         }
-        initialMsg();
-    } else {
-        std::cout << "No contact has been found" << std::endl;
-        initialMsg();
     }
-	return(index);
+    if (attempts == 3) {
+        std::cout << "Maximum number of attempts reached. Exiting." << std::endl;
+    }
+    return index;
 }
 
 int PhoneBook::getNumContacts() const {

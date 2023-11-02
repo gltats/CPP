@@ -22,10 +22,11 @@ void Contact::reset() {
 	DarkestSecret.clear();
 }
 
-// Function to check if a string contains only letters
+//Function to check if a string contains only letters
 bool Contact::isLettersOnly(const std::string& str) {
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
         if (!isalpha(*it)) {
+			std::cout << "\033[0;31mIt can only contain letters. Please enter a valid one:\033[0m" << std::endl;
             return false; // Contains a non-letter character
         }
     }
@@ -36,51 +37,60 @@ bool Contact::isLettersOnly(const std::string& str) {
 bool Contact::isNumbersOnly(const std::string& str) {
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
         if (!isdigit(*it)) {
+			std::cout << "\033[0;31mPhone Number can only contain mumbers. Please enter a valid one:\033[0m" << std::endl;
             return false; // Contains a non-digit character
         }
     }
     return true; // Contains only digits
 }
 
-
 void Contact::read() {
-    std::cout << BLUE << "First name: " << RESET << std::endl;
-    std::cin >> FirstName;
-    while (!isLettersOnly(FirstName)) {
-        std::cout << "\033[0;31mFirst name can only contain letters. Please enter a valid name:\033[0m" << std::endl;
-        std::cin >> FirstName;
-    }
-    std::cout << PINK << "First name: " << FirstName << RESET << std::endl;
+	//FirstName
+	std::cout << BLUE << "First Name:" << RESET << std::endl;
+	std::getline(std::cin, FirstName);
+	while (!isLettersOnly(FirstName)) {
+		std::cout << BLUE << "First Name:" << RESET << std::endl;
+		std::getline(std::cin, FirstName);
+	}
+	std::cout << PINK << "First Name:" << FirstName << RESET << std::endl;
+
+
 	//Lastname
-    std::cout << BLUE << "Last name: " << RESET << std::endl;
-    std::cin >> LastName;
-    while (!isLettersOnly(LastName)) {
-        std::cout << "\033[0;31mLast name can only contain letters. Please enter a valid name:\033[0m" << std::endl;
-        std::cin >> LastName;
-    }
-    std::cout << PINK << "Last name: " << LastName << RESET << std::endl;
+	std::cout << BLUE << "Last Name:" << RESET << std::endl;
+	std::getline(std::cin, LastName);
+	while (!isLettersOnly(LastName)) {
+		std::cout << BLUE << "Last Name:" << RESET << std::endl;
+		std::getline(std::cin, LastName);
+	}
+	std::cout << PINK << "Last Name:" << LastName << RESET << std::endl;
+
+
 	//Nickname
-    std::cout << BLUE << "Nickname: " << RESET << std::endl;
-    std::cin >> NickName;
-    while (!isLettersOnly(NickName)) {
-        std::cout << "\033[0;31mNickname can only contain letters. Please enter a valid name:\033[0m" << std::endl;
-        std::cin >> NickName;
-    }
-    std::cout << PINK << "Nickname: " << NickName << RESET << std::endl;
+	std::cout << BLUE << "Nick Name:" << RESET << std::endl;
+	std::getline(std::cin, NickName);
+	while (!isLettersOnly(NickName)) {
+		std::cout << BLUE << "Nick Name:" << RESET << std::endl;
+		std::getline(std::cin, NickName);
+	}
+	std::cout << PINK << "Nick Name:" << NickName << RESET << std::endl;	
+
+
 	//Phonenumber
-    std::cout << BLUE << "Phone number: " << RESET << std::endl;
-    std::cin >> PhoneNumber;
-    while (!isNumbersOnly(PhoneNumber)) {
-        std::cout << "\033[0;31mPhone number can only contain numbers. Please enter a valid number:\033[0m" << std::endl;
-        std::cin >> PhoneNumber;
-    }
-    std::cout << PINK << "Phone Number: " << PhoneNumber << RESET << std::endl;
+	std::cout << BLUE << "Phone Number:" << RESET << std::endl;
+	std::getline(std::cin, PhoneNumber);
+	while (!isNumbersOnly(PhoneNumber)) {
+		std::cout << BLUE << "Phone Number:" << RESET << std::endl;
+		std::getline(std::cin, PhoneNumber);
+	}
+	std::cout << PINK << "Phone Number:" << PhoneNumber << RESET << std::endl;	
+
 	//Darkest Secret
 	std::cout << BLUE << "Darkest Secret:" << RESET << std::endl;
-	std::cin >> DarkestSecret;
-	std::cout << PINK << "Darkest Secret:" << DarkestSecret << RESET << std::endl;
+	std::getline(std::cin, DarkestSecret);
+	std::cout << PINK << "Darkest Secret:" << DarkestSecret << RESET << std::endl;	
+
 	//added
-    std::cout << BLUE << "****Contact has been added****" << RESET << std::endl;
+	std::cout << BLUE << "****Contact has been added****" << RESET << std::endl;
 }
 
 
@@ -114,12 +124,6 @@ void Contact::display(int index)
         truncatedNickName += ".";
     }
     std::cout << std::setw(10) << truncatedNickName << "|";
-
-	std::string truncatedPhoneNumber = PhoneNumber.substr(0, 9);
-    if (PhoneNumber.length() > 9) {
-        truncatedPhoneNumber += ".";
-    }
-    std::cout << std::setw(10) << truncatedPhoneNumber << "|";
 
     std::cout << RESET << std::endl;
 }
