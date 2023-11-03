@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 19:42:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/03 11:53:51 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:38:00 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,14 @@ void Contact::display(int index)
     std::cout << std::setw(10) << truncatedNickName << "|";
 
     std::cout << RESET << std::endl;
+}
+
+void Contact::displayOne(int index)
+{
+	std::cout << PINK << "Index:" << index << RESET << std::endl;
+	std::cout << PINK << "First Name:" << FirstName << RESET << std::endl;
+	std::cout << PINK << "Last Name:" << LastName << RESET << std::endl;
+	std::cout << PINK << "Nick Name:" << NickName << RESET << std::endl;
+	std::cout << PINK << "Phone Number:" << PhoneNumber << RESET << std::endl;
+	std::cout << PINK << "Dark Secret:" << DarkestSecret << RESET << std::endl;
 }

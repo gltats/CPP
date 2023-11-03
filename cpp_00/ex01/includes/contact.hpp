@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:29:38 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/02 15:44:58 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:37:14 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Contact
 		);
 		void reset();
 		void display(int index);
+		void displayOne(int index);
 	private:
 		bool isLettersOnly(const std::string& str);
 		bool isNumbersOnly(const std::string& str);

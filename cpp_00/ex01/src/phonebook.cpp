@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:57:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/02 19:20:17 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:39:41 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void PhoneBook::contactHeader()
 
 void PhoneBook::displayContact(int index)
 {
-	std::cout << BLUE <<  "|";
-	contacts[index].display(index);
+	// std::cout << BLUE <<  "|";
+	contacts[index].displayOne(index);	
 }
 
 void PhoneBook::displayAllContact(int index)
@@ -85,7 +85,7 @@ int PhoneBook::searchContact(int index) {
             attempts++;
         } else if (index >= 0 && index < numContacts) {
 			std::cout << "Found" << std::endl;
-            contactHeader();
+            // contactHeader();
             displayContact(index);
             return (index);  // Exit the function with a valid index
         } else {
