@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*									    */
-/*							:::      ::::::::   */
-/*   contact.cpp					:+:      :+:    :+:   */
-/*						    +:+ +:+	 +:+     */
-/*   By: tgomes-l <tgomes-l@student.42wolfsburg>    +#+  +:+       +#+	*/
-/*						+#+#+#+#+#+   +#+	   */
-/*   Created: 2023/10/13 18:33:30 by tgomes-l	  #+#    #+#	     */
-/*   Updated: 2023/10/20 23:33:07 by tgomes-l	 ###   ########.fr       */
-/*									    */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 19:42:45 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/11/03 11:53:51 by tgomes-l         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
@@ -24,6 +24,10 @@ void Contact::reset() {
 
 //Function to check if a string contains only letters
 bool Contact::isLettersOnly(const std::string& str) {
+	if (str.empty()) {
+        std::cout << "\033[0;31mThe input is empty. Please enter a valid one:\033[0m" << std::endl;
+        return false;
+    }
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
         if (!isalpha(*it)) {
 			std::cout << "\033[0;31mIt can only contain letters. Please enter a valid one:\033[0m" << std::endl;
@@ -35,6 +39,10 @@ bool Contact::isLettersOnly(const std::string& str) {
 
 // Function to check if a string contains only numbers
 bool Contact::isNumbersOnly(const std::string& str) {
+	if (str.empty()) {
+        std::cout << "\033[0;31mThe input is empty. Please enter a valid one:\033[0m" << std::endl;
+        return false;
+    }
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
         if (!isdigit(*it)) {
 			std::cout << "\033[0;31mPhone Number can only contain mumbers. Please enter a valid one:\033[0m" << std::endl;

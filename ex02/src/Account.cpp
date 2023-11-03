@@ -9,6 +9,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
+// Constructor with initial deposit
 Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
@@ -17,9 +18,11 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(init
     _nbAccounts++;
 }
 
+// Default constructor
 Account::Account() : _accountIndex(0), _amount(0), _nbDeposits(0), _nbWithdrawals(0) {
 }
 
+// Destructor
 Account::~Account() {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
@@ -28,6 +31,7 @@ Account::~Account() {
     _nbAccounts--;
 }
 
+//GETTERS
 int Account::getNbAccounts() {
     return _nbAccounts;
 }
@@ -44,6 +48,7 @@ int Account::getNbWithdrawals() {
     return _totalNbWithdrawals;
 }
 
+//Display information about all accounts
 void Account::displayAccountsInfos() {
     _displayTimestamp();
     std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
