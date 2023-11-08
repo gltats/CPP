@@ -41,8 +41,8 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 # TIMER = sleep 0.5s
 
 # Folders & files
-FILES = 
-HEADER_FILES = 
+FILES = zombieHorde main
+HEADER_FILES = zombieHorde
 
 
 # Source files
