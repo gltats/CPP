@@ -1,0 +1,83 @@
+# Banner
+define T_HEADER
+
+
+   _____          _   _        __             _                         
+  / ____|        | | '_'      / _|           | |                        
+ | '___   ___  __| |  _ ___  | |_ ___  _ __  | | ___  ___  ___ _ __ ___ 
+  \___ \ / _ \/ _` | | / __| |  _/ _ \| '__| | |/ _ \/ __|/ _ \ '__/ __|
+  ____' |  __/ '_| | | \__ \ | || '_' | |    | | '_' \__ \  __/ |  \__ \
+ |_____/ \___|\__,_| |_|___/ |_| \___/|_|    |_|\___/|___/\___|_|  |___/
+                                                                        
+                                                                        
+
+                                                                                               
+endef 
+export T_HEADER
+
+#Colors------------------------------------------------------------
+#\033[38;2;255;0;0m 38;2 indicates 24-bit color mode.
+#                   255;0;0 amount of red, green, and blue
+CYAN = \033[0;96m
+ORANGE = \033[38;2;255;146;3m
+RED = \033[38;2;255;0;0m
+GREEN = \033[38;2;0;255;0m
+RESET = \033[0m
+#------------------------------------------------------------------
+
+#Emojis-------------------------
+EMOJI_HAPPY := \xF0\x9F\x98\x83
+EMOJI_SAD := \xF0\x9F\x98\xA2
+EMOJI_CELEBRATE := \xF0\x9F\x8E\x89
+EMOJI_CLOCK := \xE2\x8F\xB0
+CLEANING_TOOL := \xF0\x9F\xA7\xBD
+#--------------------------------
+
+# Binary name
+NAME = Sed_is_for_losers
+
+# Compiler and flags
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
+
+#timing
+# TIMER = sleep 0.5s
+
+# Folders & files
+FILES = 
+HEADER_FILES = 
+
+
+# Source files
+SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
+HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
+
+# Object files
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@echo "$(CYAN)$$T_HEADER$(RESET)"
+	@echo "\n"
+	@echo "$(EMOJI_CLOCK)$(ORANGE)Compiling...$(RESET)"
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
+
+%.o: %.cpp
+	@echo "$(ORANGE)Generating objects... $@$(RESET)"
+	@${CC} ${CFLAGS} -c $< -o $@
+
+clean:
+	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
+	@rm -f $(OBJ)
+	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
+
+fclean: clean
+	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
+	@rm -f $(NAME)
+	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
+
+re: fclean all
+
+.PHONY: clean fclean re
