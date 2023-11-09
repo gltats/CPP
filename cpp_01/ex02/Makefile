@@ -31,47 +31,41 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 NAME = THIS_IS_BRAIN
 
 # Compiler and flags
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
+CC = g++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 #timing
-# TIMER = sleep 0.5s
-
-# Folders & files
-FILES = 
-HEADER_FILES = 
-
+TIMER = sleep 0.5
 
 # Source files
-SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
-HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
+SRC = main.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-
+                                                                                                                                                            
 $(NAME): $(OBJ)
 	@echo "$(CYAN)$$T_HEADER$(RESET)"
 	@echo "\n"
-	@echo "$(EMOJI_CLOCK)$(ORANGE)Compiling...$(RESET)"
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@echo "$(EMOJI_CLOCK)$(ORANGE)Compiling philo...$(RESET)"
+	@$(TIMER)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
-
-%.o: %.cpp
-	@echo "$(ORANGE)Generating objects... $@$(RESET)"
-	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
+	@echo "$(RESET)$(ORANGE)$(CLEANING_TOOL)Cleaning...$(RESET)"
 	@rm -f $(OBJ)
-	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
+	@echo "$(RESET)$(GREEN)CLEANED ✓✓$(RESET)"
 
 fclean: clean
-	@echo "$(EMOJI_CLOCK)$(ORANGE)cleaning...$(RESET)"
+	@echo "$(RESET)$(ORANGE)$(CLEANING_TOOL)Cleaning all...$(RESET)"
+	@$(TIMER)
 	@rm -f $(NAME)
-	@echo "$(EMOJI_HAPPY)$(GREEN)DONE ✓✓$(RESET)"
+	@$(TIMER)
+	@echo "$(RESET)$(GREEN)ALL CLEANED ✓✓$(RESET)"
 
 re: fclean all
+
 
 .PHONY: clean fclean re
