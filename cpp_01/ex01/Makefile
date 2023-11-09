@@ -47,7 +47,7 @@ HEADER_FILES = zombieHorde
 
 # Source files
 SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
-HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
+HEADER = $(addsuffix .hpp, $(addprefix includes/, $(HEADER_FILES)))
 
 # Object files
 OBJ = $(SRC:.cpp=.o)

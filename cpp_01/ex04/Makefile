@@ -44,13 +44,13 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 # TIMER = sleep 0.5s
 
 # Folders & files
-FILES = 
-HEADER_FILES = 
+FILES = fileManipulator main
+HEADER_FILES = fileManipulator
 
 
 # Source files
 SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
-HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
+HEADER = $(addsuffix .hpp, $(addprefix includes/, $(HEADER_FILES)))
 
 # Object files
 OBJ = $(SRC:.cpp=.o)
