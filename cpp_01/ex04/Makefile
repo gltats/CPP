@@ -34,7 +34,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = Sed_is_for_losers
+NAME = sed
 
 # Compiler and flags
 CC = c++

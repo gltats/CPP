@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:27:27 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/08 19:25:49 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:12:19 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	int hordeSize = 10;
+	const int hordeSize = 10;
 	std::string zombieBaseName = "foo";
 	
 	Zombie* zh = zombieHorde(hordeSize, zombieBaseName);
