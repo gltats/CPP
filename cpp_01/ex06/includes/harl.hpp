@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fileManipulator.hpp                                :+:      :+:    :+:   */
+/*   harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 19:56:27 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/11 19:28:17 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/11/11 17:32:33 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/11/11 18:49:08 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILEMANIPULATOR_HPP
-# define FILEMANIPULATOR_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
+
+#include <iostream>
 
 #define RESET   "\033[0m"
 #define RED     "\033[1;31m"
 #define YELLOW  "\033[1;33m"
-#define GREEN "\033[1;32m"
+#define BLUE    "\033[1;34m"
+#define GREEN   "\033[1;32m"
+#define PINK	"\033[1;35m"
 
-#include <string.h>
-#include <iostream>
-#include <fstream>
-
-class FileManipulator
+class Harl
 {
 	private:
-	    std::string filename;
-    	std::string s1;
-    	std::string s2;
-		void replaceAllOccurrences(std::string& content, const std::string& search, const std::string& replacement);
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	
 	public:
-		~FileManipulator();
-		void processFile();
-		FileManipulator(const std::string& filename, const std::string& s1, const std::string& s2);
+		Harl();
+		~Harl();
+		void complain(std::string level);
 };
 
 #endif

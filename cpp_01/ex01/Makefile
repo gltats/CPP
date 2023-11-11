@@ -31,7 +31,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = Moar_brainz
+NAME = moar_brainz
 
 # Compiler and flags
 CC = c++

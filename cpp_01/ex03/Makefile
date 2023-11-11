@@ -27,7 +27,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = Unnecessary_violence
+NAME = unnecessary
 
 # Compiler and flags
 CC = c++

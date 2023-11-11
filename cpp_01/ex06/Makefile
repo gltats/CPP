@@ -1,12 +1,17 @@
 # Banner
 define T_HEADER
 
-    ____             _ _ _ _ _ _ _                              _____
-   / __ /_________ _|_|_|_|_|_|_|_|___  ____  ____  ___________/__  /
-  / __  / ___/ __ `/ / / / / / / / __ \/ __ \/ __ \/_  /_  /_  / / / 
- / /_/ / /  / /_/ / / / / / / / / / / / / / / / / / / /_/ /_/ /_/ /__
-/_____/_/   \__,_/_/_/_/_/_/_/_/_/ /_/_/ /_/_/ /_/ /___/___/___/____/
-                                                                                                     
+ __   __  _______  ______    ___     
+|  | |  ||   _   ||    _ |  |   |    
+|  |_|  ||  |_|  ||   | ||  |   |    
+|       ||       ||   |_||_ |   |    
+|       ||       ||    __  ||   |___ 
+|   _   ||   _   ||   |  | ||       |
+|__| |__||__| |__||___|  |_||_______|
+
+                                                                        
+
+                                                                                               
 endef 
 export T_HEADER
 
@@ -29,7 +34,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = braiiiiiiinnnzzzZ
+NAME = harlsec
 
 # Compiler and flags
 CC = c++
@@ -39,8 +44,8 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 # TIMER = sleep 0.5s
 
 # Folders & files
-FILES = zombie randomChump newZombie main
-HEADER_FILES = zombie
+FILES = harl main
+HEADER_FILES = harl
 
 
 # Source files

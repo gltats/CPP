@@ -34,7 +34,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = Harl
+NAME = harl
 
 # Compiler and flags
 CC = c++
@@ -44,13 +44,13 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -std=c++98 -pedantic
 # TIMER = sleep 0.5s
 
 # Folders & files
-FILES = 
-HEADER_FILES = 
+FILES = harl main
+HEADER_FILES = harl
 
 
 # Source files
 SRC = $(addsuffix .cpp, $(addprefix src/, $(FILES)))
-HEADER = $(addsuffix .h, $(addprefix includes/, $(HEADER_FILES)))
+HEADER = $(addsuffix .hpp, $(addprefix includes/, $(HEADER_FILES)))
 
 # Object files
 OBJ = $(SRC:.cpp=.o)

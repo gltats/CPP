@@ -28,7 +28,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = THIS_IS_BRAIN
+NAME = this_is_brain
 
 # Compiler and flags
 CC = g++
