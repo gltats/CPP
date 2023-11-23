@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 18:07:52 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/12 18:15:59 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:22:01 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ Fixed::Fixed(const int i) {
 
 //n((int)roundf(f * (1 << _c)))
 Fixed::Fixed(const float f) {
-    this->n = static_cast<int>(f * (1 << c)); // Convert float to fixed-point value and store in 'n'
+	this->n = static_cast<int>(roundf(f * (1 << c)));  // Convert float to fixed-point value and store in 'n'
 }
-
 
 /*
 *	DESTRUCTOR
@@ -52,13 +51,105 @@ Fixed	&Fixed::operator=(const Fixed &fixed)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+std::ostream& operator<<(std::ostream &out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
 	return out;
 }
 
+bool Fixed::operator > (const Fixed &fixed1)
+{
+	return (this->toFloat() > fixed1.toFloat());
+}
 
+bool Fixed::operator < (const Fixed &fixed1)
+{
+	return (this->toFloat() < fixed1.toFloat());
+}
+
+bool Fixed::operator >= (const Fixed &fixed1)
+{
+	return (this->toFloat() >= fixed1.toFloat());
+}
+
+bool Fixed::operator <= (const Fixed &fixed1)
+{
+	return (this->toFloat() <= fixed1.toFloat());
+}
+
+bool Fixed::operator == (const Fixed &fixed1)
+{
+	return (this->toFloat() == fixed1.toFloat());
+}
+
+bool Fixed::operator != (const Fixed &fixed1)
+{
+	return (this->toFloat() != fixed1.toFloat());
+}
+
+float Fixed::operator + (const Fixed &fixed1)
+{
+	return (this->toFloat() + fixed1. toFloat());
+}
+
+float Fixed::operator - (const Fixed &fixed1)
+{
+	return (this->toFloat() - fixed1. toFloat());
+}
+
+float Fixed::operator * (const Fixed &fixed1)
+{
+	return (this->toFloat() * fixed1. toFloat());
+}
+
+float Fixed::operator / (const Fixed &fixed1)
+{
+		return (this->toFloat() / fixed1. toFloat());
+}
+
+float Fixed::operator ++()
+{
+	this->setRawBits(this->getRawBits() + 1);
+	return (this->toFloat());
+}
+
+float Fixed::operator ++(int)
+{
+	float temp;
+	temp = this->toFloat();
+	this->setRawBits(this->getRawBits() + 1);
+	return (temp);
+}
+
+Fixed Fixed::min (const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1.toFloat() < fixed2.toFloat())
+		return (fixed1);
+	return (fixed2);
+}
+
+Fixed Fixed::min (Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1 < fixed2)
+		return (fixed1);
+	return (fixed2);
+}
+
+//return a reference to the maximum value between 'a' and 'b'
+Fixed & Fixed::max(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1 > fixed2)
+		return (fixed1);
+	return (fixed2);
+}
+
+//return a reference to the maximum value between 'a' and 'b' (const version)
+const Fixed & Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1.toFloat() > fixed2.toFloat())
+		return (fixed1);
+	return (fixed2);
+}
 
 /*
 *	OTHER FUNCTIONS
@@ -83,4 +174,3 @@ int Fixed::toInt( void ) const
 {
 	 return (n >> c);
 }
-

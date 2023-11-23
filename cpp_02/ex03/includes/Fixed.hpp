@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fixed.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:24:24 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/15 19:27:22 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:24:19 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ class Fixed
 		float operator ++(int);
 
 		static Fixed min (const Fixed &fixed1, const Fixed &fixed2);
-		static Fixed max (const Fixed &fixed1, const Fixed &fixed2);
 		static Fixed min (Fixed &fixed1, Fixed &fixed2);
-		static Fixed max (Fixed &fixed1, Fixed &fixed2);
+		Fixed &max(Fixed &fixed1, Fixed &fixed2);
+		const Fixed &max(const Fixed &fixed1, const Fixed &fixed2);
+	
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );

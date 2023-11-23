@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 18:06:55 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/20 15:51:55 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/11/23 15:47:21 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/11/23 16:52:01 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fixed.hpp"
 
-int main( void ) 
+#ifndef SCAVTRAP_CLASS
+#define SCAVTRAP_CLASS
+
+#include "ClapTrap.hpp"
+#include <iostream>
+
+class ScavTrap : public ClapTrap
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	
-	return 0;
-}
+	public:
+		ScavTrap();
+		~ScavTrap();
+		ScavTrap(std::string name);
+		void highFivesGuys(void);
+	private:
+
+};
+
+#endif

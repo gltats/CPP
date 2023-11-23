@@ -6,11 +6,12 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:24:13 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/15 16:40:49 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:23:35 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 /*
 *	CONSTRUCTOR
 */ 
@@ -29,9 +30,8 @@ Fixed::Fixed(const int i) {
 
 //n((int)roundf(f * (1 << _c)))
 Fixed::Fixed(const float f) {
-    this->n = static_cast<int>(f * (1 << c)); // Convert float to fixed-point value and store in 'n'
+	this->n = static_cast<int>(roundf(f * (1 << c)));  // Convert float to fixed-point value and store in 'n'
 }
-
 
 /*
 *	DESTRUCTOR
@@ -44,13 +44,13 @@ Fixed::~Fixed()
 /*
 *	OPERATORS
 */
-Fixed	&Fixed::operator = (const Fixed &fixed)
+Fixed	&Fixed::operator=(const Fixed &fixed)
 {
 	this->n = fixed.getRawBits();
 	return (*this);
 }
 
-std::ostream &operator << (std::ostream &out, const Fixed &fixed)
+std::ostream& operator<<(std::ostream &out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
 	return out;
@@ -127,13 +127,6 @@ Fixed Fixed::min (const Fixed &fixed1, const Fixed &fixed2)
 	return (fixed2);
 }
 
-Fixed Fixed::max (const Fixed &fixed1, const Fixed &fixed2)
-{
-	if (fixed1.toFloat() > fixed2.toFloat())
-		return (fixed1);
-	return (fixed2);
-}
-
 Fixed Fixed::min (Fixed &fixed1, Fixed &fixed2)
 {
 	if (fixed1 < fixed2)
@@ -141,9 +134,18 @@ Fixed Fixed::min (Fixed &fixed1, Fixed &fixed2)
 	return (fixed2);
 }
 
-Fixed Fixed::max (Fixed &fixed1, Fixed &fixed2)
+//return a reference to the maximum value between 'a' and 'b'
+Fixed & Fixed::max(Fixed &fixed1, Fixed &fixed2)
 {
 	if (fixed1 > fixed2)
+		return (fixed1);
+	return (fixed2);
+}
+
+//return a reference to the maximum value between 'a' and 'b' (const version)
+const Fixed & Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1.toFloat() > fixed2.toFloat())
 		return (fixed1);
 	return (fixed2);
 }

@@ -5,26 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 18:06:55 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/20 15:51:55 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/11/23 16:05:50 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/11/23 16:38:49 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fixed.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main( void ) 
-{
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+int main(void)
+{	
+	ScavTrap scavTrapDefault;
+
+	ClapTrap bot1 ("BotOne");
+	ClapTrap bot2 ("BotTwo");
+	ScavTrap bot3 ("BotScav");
+
+	std::cout << std::endl;
+	std::cout << GREEN << "Battle: " << bot1.getName() << " vs " << bot2.getName() << RESET << std::endl;
+	std::cout << std::endl;
+
+	bot1.attack(bot2.getName());
+	bot1.takeDamage(4);
+	bot1.beRepaired(4);
+
+
+	bot3.attack(bot1.getName());
+	bot3.takeDamage(20);
+	bot3.beRepaired(20);
+	bot3.guardGate();
+
+	std::cout << std::endl;
 	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	
-	return 0;
+    return 0;
 }

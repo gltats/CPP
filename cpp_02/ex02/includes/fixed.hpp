@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 18:07:57 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/12 18:24:26 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:38:46 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ class Fixed
 		float operator ++(int);
 
 		static Fixed min (const Fixed &fixed1, const Fixed &fixed2);
-		static Fixed max (const Fixed &fixed1, const Fixed &fixed2);
 		static Fixed min (Fixed &fixed1, Fixed &fixed2);
-		static Fixed max (Fixed &fixed1, Fixed &fixed2);
+		// static Fixed max (Fixed &fixed1, Fixed &fixed2);
+		// static Fixed max (const Fixed &fixed1, const Fixed &fixed2);
+		static Fixed &max(Fixed &fixed1, Fixed &fixed2);
+		static const Fixed &max(const Fixed &fixed1n,const Fixed &fixed2);
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
@@ -59,4 +61,3 @@ class Fixed
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif
-
