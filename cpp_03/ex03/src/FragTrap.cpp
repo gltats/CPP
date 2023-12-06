@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:49:18 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:35:12 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:53:03 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 14:18:18 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "FragTrap.hpp"
 
@@ -35,4 +34,14 @@ FragTrap::~FragTrap()
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << GREEN << "FragTrap " << this->Name << "High Five" << RESET << std::endl;
+}
+
+int FragTrap::getAttackDamage( void )
+{
+	return (30);
+}
+
+int FragTrap::getHitPoints( void )
+{
+	return (100);
 }

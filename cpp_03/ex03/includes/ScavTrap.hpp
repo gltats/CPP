@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:47:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:09 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:52:08 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 14:18:42 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_CLASS
-#define FRAGTRAP_CLASS
+#ifndef SCAVTRAP_CLASS
+#define SCAVTRAP_CLASS
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
@@ -25,16 +25,18 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap
+class ScavTrap : public ClapTrap
 {
 	public:
-		FragTrap();
-		~FragTrap();
-		FragTrap(std::string name);
-		void highFivesGuys(void);
+		ScavTrap();
+		~ScavTrap();
+		ScavTrap(std::string name);
+		void guardGate();
+		int	getEnergyPoints( void );
 	private:
 
 };
 
 #endif
+
 

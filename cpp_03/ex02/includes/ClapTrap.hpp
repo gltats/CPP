@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:47:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/23 16:25:27 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:34:02 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ class ClapTrap
 		unsigned int EnergyPoints;
 		unsigned int AttackDamage;
 };
-
 #endif

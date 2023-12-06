@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:47:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:09 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:54:25 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 14:07:51 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_CLASS
-#define FRAGTRAP_CLASS
+#ifndef DIAMONDTRAP_CLASS
+#define DIAMONDTRAP_CLASS
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
@@ -23,18 +23,20 @@
 #define RESET "\033[0m"
 
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap
+// class that has access to and combines features from both FragTrap and ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		FragTrap();
-		~FragTrap();
-		FragTrap(std::string name);
-		void highFivesGuys(void);
+		DiamondTrap();
+		~DiamondTrap();
+		DiamondTrap(std::string name);
+		void whoAmI(void);
 	private:
-
+		std::string DiamondName;
 };
 
 #endif
-

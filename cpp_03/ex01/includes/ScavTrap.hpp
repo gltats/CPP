@@ -6,10 +6,9 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:47:21 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/23 16:16:07 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:28:34 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SCAVTRAP_CLASS
 #define SCAVTRAP_CLASS

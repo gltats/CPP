@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:47:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:09 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:51:37 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 12:51:43 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_CLASS
-#define FRAGTRAP_CLASS
+#ifndef CLAPTRAP_CLASS
+#define CLAPTRAP_CLASS
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
@@ -22,19 +22,22 @@
 
 #define RESET "\033[0m"
 
-#include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap
+class ClapTrap
 {
 	public:
-		FragTrap();
-		~FragTrap();
-		FragTrap(std::string name);
-		void highFivesGuys(void);
-	private:
-
+		ClapTrap();
+		~ClapTrap();
+		ClapTrap(std::string name);
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+		std::string getName();
+	protected:
+		std::string Name;
+		unsigned int HitPoints;
+		unsigned int EnergyPoints;
+		unsigned int AttackDamage;
 };
-
 #endif
-

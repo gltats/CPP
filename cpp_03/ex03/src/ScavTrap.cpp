@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 15:51:01 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:14 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:53:26 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 14:18:52 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ ScavTrap::~ScavTrap()
 void	ScavTrap::guardGate()
 {
 	std::cout << BLUE << "ScravTrap " << this->Name << " is now in Gate keeper mode" << RESET << std::endl;
+}
+
+int	ScavTrap::getEnergyPoints(void)
+{
+	return (50);
 }

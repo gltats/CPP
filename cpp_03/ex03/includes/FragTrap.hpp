@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:47:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:09 by tgomes-l         ###   ########.fr       */
+/*   Created: 2023/12/06 12:51:55 by tgomes-l          #+#    #+#             */
+/*   Updated: 2023/12/06 14:19:11 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 		FragTrap(std::string name);
 		void highFivesGuys(void);
+		int	getHitPoints(void);
+		int	getAttackDamage(void);
 	private:
 
 };
