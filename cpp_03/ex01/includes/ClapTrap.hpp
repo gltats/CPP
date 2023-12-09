@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:47:29 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/23 16:25:27 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:12:03 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,20 @@
 class ClapTrap
 {
 	public:
-		ClapTrap();
-		~ClapTrap();
+		ClapTrap( void );
+		ClapTrap( const ClapTrap &claptrap);
+		ClapTrap( unsigned int HitPoints, unsigned int EnergyPoints, unsigned int AttackDamage, std::string name);
+		ClapTrap &operator=(const ClapTrap &claptrap);
+		
 		ClapTrap(std::string name);
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		~ClapTrap();
+		
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 		std::string getName();
 	protected:
-		std::string Name;
+		std::string name;
 		unsigned int HitPoints;
 		unsigned int EnergyPoints;
 		unsigned int AttackDamage;

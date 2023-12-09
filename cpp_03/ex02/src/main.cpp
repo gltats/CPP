@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:05:50 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:40:47 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:58:23 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int main(void)
 {	
-	FragTrap FragTrapDefault;
-
-	FragTrap bot1 ("BotOne");
+	FragTrap bot1;
 	FragTrap bot2 ("BotTwo");
+	FragTrap bot3 (bot2);
+	FragTrap bot4 ("BotOne");
+	bot1 = bot4;
 
 	std::cout << std::endl;
 	std::cout << GREEN << "Battle: " << bot1.getName() << " vs " << bot2.getName() << RESET << std::endl;
@@ -36,6 +37,5 @@ int main(void)
 	bot2.highFivesGuys();
 
 	std::cout << std::endl;
-	
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:47:45 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:09 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:36:24 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@
 class FragTrap : public ClapTrap
 {
 	public:
-		FragTrap();
-		~FragTrap();
+		FragTrap(void);
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &fragtrap);
+		~FragTrap();
+		FragTrap &operator=( const FragTrap &fragtrap);
 		void highFivesGuys(void);
 	private:
 

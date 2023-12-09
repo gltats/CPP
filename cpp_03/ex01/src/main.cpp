@@ -6,26 +6,28 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:05:50 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/11/23 16:38:49 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:56:20 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main(void)
 {	
-	ScavTrap scavTrapDefault;
+	// ScavTrap scavTrapDefault;
 
-	ClapTrap bot1 ("BotOne");
-	ClapTrap bot2 ("BotTwo");
-	ScavTrap bot3 ("BotScav");
+	ScavTrap bot1;
+	ScavTrap bot2 ("BotTwo");
+	ScavTrap bot3 (bot2);
+	ScavTrap bot4 ("BotOne");
+
+	bot1 = bot4;
 
 	std::cout << std::endl;
-	std::cout << GREEN << "Battle: " << bot1.getName() << " vs " << bot2.getName() << RESET << std::endl;
+	std::cout << GREEN << "Battle: " << bot1.getName() << " vs " << bot3.getName() << RESET << std::endl;
 	std::cout << std::endl;
 
-	bot1.attack(bot2.getName());
+	bot1.attack(bot3.getName());
 	bot1.takeDamage(4);
 	bot1.beRepaired(4);
 
@@ -36,6 +38,5 @@ int main(void)
 	bot3.guardGate();
 
 	std::cout << std::endl;
-	
     return 0;
 }

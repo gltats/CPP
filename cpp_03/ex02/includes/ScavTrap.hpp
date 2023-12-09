@@ -6,7 +6,7 @@
 /*   By: tgomes-l <tgomes-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:47:21 by tgomes-l          #+#    #+#             */
-/*   Updated: 2023/12/06 12:34:06 by tgomes-l         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:33:54 by tgomes-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@
 class ScavTrap : public ClapTrap
 {
 	public:
-		ScavTrap();
-		~ScavTrap();
+		ScavTrap(void);
 		ScavTrap(std::string name);
-		void guardGate();
+		ScavTrap(const ScavTrap &scavtrap);
+		~ScavTrap();
+		ScavTrap &operator=( const ScavTrap &scavtrap);
+		void guardGate(void);
 	private:
 
 };
