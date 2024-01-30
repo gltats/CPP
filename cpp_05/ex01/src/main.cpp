@@ -11,91 +11,104 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+
+void test(void)
+{
+	Bureaucrat Boss("The Boss", 1);
+	std::cout << Boss;
+
+	std::cout << "\n____________test 1:____________" << std::endl;
+	try {
+		Form Form1("Lola", 8, 1);
+		std::cout << Form1;
+		Boss.signForm(Form1);
+		Boss.signForm(Form1);
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: can be signed" << std::endl;
+
+
+	std::cout << "\n____________test 2:____________" << std::endl;
+	try {
+
+		Form Form2("Pepa", 160, 110);
+		std::cout << Form2;
+		Boss.signForm(Form2);
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: can noy be signed, to low" << std::endl;
+
+
+	std::cout << "\n____________test 3:____________" << std::endl;
+	try {
+		Form Form3("Mateo", 0, 50);
+		std::cout << Form3;
+		Boss.signForm(Form3);
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: can not be signed too high" << std::endl;
+
+	std::cout << "\n____________test 4:____________" << std::endl;
+	try {
+		Form Form4("Octavio",  0177, 0177);  // Octal literal 127, 127
+		// Form Form4("Octavio",  03245, 03245);  // Octal literal 1725, 1725
+		std::cout << Form4;
+		Boss.signForm(Form4);
+
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: can be signed, Octal literal is 127" << std::endl;
+
+	std::cout << "\n____________test 5:____________" << std::endl;
+	try {
+		Form Form5("Marcelo", '@', '@'); // Character literal  64, 64
+		//Form Form5("Marcelo", 'Z' + 'Z', 'Z'); // Character literal  180, 90
+		std::cout << Form5;
+		Boss.signForm(Form5);
+		// Boss.signForm(Form5);
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: can be signed, is Character literal 64" << std::endl;
+
+	std::cout << "\n____________test 6:____________" << std::endl;
+	try {
+		Form Form6("Luciana", 0x3b24, 0XF96); // Hexadecimal literal 15140, 3990
+		// Form Form6("Luciana", 0xA, 0xB); // Hexadecimal literal 10, 11
+		std::cout << Form6;
+		Boss.signForm(Form6);
+	}
+	catch (std::exception &e) 
+	{
+		std::cout << e.what()  << std::endl;
+	}
+	std::cout << "Note: can not be signed, Hexadecimal literal is 15140, 3990" << std::endl;
+}
 
 int main(void)
 {
-	std::cout << "\n____________test 1: John____________" << std::endl;
-	try {
-		Bureaucrat bureaucrat("John", 50);
-		std::cout << bureaucrat;
+	test();
 
-		bureaucrat.increment();
-		std::cout << bureaucrat;
-
-		bureaucrat.decrement();
-		std::cout << bureaucrat;
-		
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	
-	std::cout << "\n____________test 2: Matilde____________" << std::endl;
-	try {
-		Bureaucrat bureaucrat("Matilde", 151);
-		std::cout << bureaucrat;
-
-		bureaucrat.increment();
-		std::cout << bureaucrat;
-
-		bureaucrat.decrement();
-		std::cout << bureaucrat;
-		
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << "\n____________test 3: Jorge____________" << std::endl;
-	try {
-		Bureaucrat bureaucrat("Jorge", 0);
-		std::cout << bureaucrat;
-
-		bureaucrat.increment();
-		std::cout << bureaucrat;
-
-		bureaucrat.decrement();
-		std::cout << bureaucrat;
-		
-	} catch (const std::exception& e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-    std::cout << "\n____________test 4: Maria____________" << std::endl;
-    try {
-        Bureaucrat bureaucrat("Maria", 140);
-        std::cout << bureaucrat;
-
-        for (int i = 2; i < 200; i++) {
-            try {
-                bureaucrat.increment();
-                std::cout << bureaucrat;
-            } catch (const std::exception& e) {
-                std::cerr << "Exception: " << e.what() << std::endl;
-                break; // Exit the loop when an exception occurs
-            }
-        }
-
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-	std::cout << "\n____________test 5: Anna____________" << std::endl;
-    try {
-        Bureaucrat bureaucrat("Anna", 140);
-        std::cout << bureaucrat;
-
-        for (int i = 2; i < 200; i++) {
-            try {
-                bureaucrat.increment();
-                std::cout << bureaucrat;
-            } catch (const std::exception& e) {
-                std::cerr << "Exception: " << e.what() << std::endl;
-                break; // Exit the loop when an exception occurs
-            }
-        }
-
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-	
-	return 0;
+	return (0);
 }

@@ -36,8 +36,8 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 NAME = Bureaucrat
 
 # Compiler and flags
-CC = c++
-CFLAGS = -Wall -Wextra -Werror  -Wshadow -Wno-shadow -Iincludes -std=c++98 -pedantic
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror  -Wshadow -Wno-shadow -Iincludes -std=c++98
 
 #timing
 # TIMER = sleep 0.5s

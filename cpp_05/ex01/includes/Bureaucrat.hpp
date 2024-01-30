@@ -13,9 +13,29 @@
 #pragma once
 
 #include <iostream>
+#include "Form.hpp" 
+
+class Form; // Forward declaration
 
 class Bureaucrat {
 	public:
+		//Canonical Form
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat &operator=(const Bureaucrat &copy);
+		~Bureaucrat();
+
+		//Mandatory part
+		std::string getName() const;
+		int getGrade() const;
+		void incrementGrade();
+		void decrementGrade();
+		void signForm(Form& form);
+
+	private:
+		const std::string _name;
+		int _grade;
 		//nested Grade exception
 		class GradeTooHighException: public std::exception //inherit exception
 		{
@@ -27,18 +47,7 @@ class Bureaucrat {
 			public:
 				virtual const char *what() const throw();
 		};
-		Bureaucrat();
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(const Bureaucrat &copy);
-		Bureaucrat &operator=(const Bureaucrat &copy);
-		~Bureaucrat();
-		const std::string getName() const;
-		int getGrade() const;
-		void decrement();
-		void increment();
-	private:
-		const std::string _name;
-		int _grade;
+
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);

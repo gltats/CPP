@@ -13,40 +13,43 @@
 
 #pragma once
 
-// Class declaration
+#include <iostream>
+#include "Bureaucrat.hpp"
+
+
+class Bureaucrat;
+
 class Form {
- public:
-	class GradeTooHighException: public std::exception
-	{
-		public:
-			virtual const char *what() const throw();
-	}
-	class GradeTooLowException: public std::exception
-	{
-		public:
-			virtual const char *what() const throw();
-	}
-	class : public std::exception
-	{
-		public:
-			virtual const char *what() const throw();
-	}
-	Form();
-	Form(bool signCheck, int signGrade, int executeGrad);
-	Form(const Form &copy);
-	Form &operator=(const Form &copy);
-	~Form();
-	const std::string getName() const;
-	bool getSignCheck() const;
-	int getSignGrade() const;
-	int getExecuteGrade() const;
-	
- private:
-	const std::string _name;
-	const int _signGrade;
-	const int _executeGrade;
-	bool _signCheck;
+	private:
+		const std::string _name;
+		bool _signed;
+		const int _gradeToSign;
+		const int _gradeToExecute;
+		//nested Grade exception
+		class GradeTooHighException: public std::exception //inherit exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class GradeTooLowException: public std::exception //inherit exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+	public:
+		//Canonical Form
+		Form();
+		Form(std::string name, int gradeToSign, int gradeToExecute);
+		Form(const Form &copy);
+		Form &operator=(const Form &copy);
+		~Form();
+
+		//Mandatory part
+		const std::string getName() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
+		void beSigned(Bureaucrat &bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &os, Form const &form);
-
