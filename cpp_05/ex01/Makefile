@@ -33,7 +33,7 @@ CLEANING_TOOL := \xF0\x9F\xA7\xBD
 #--------------------------------
 
 # Binary name
-NAME = Bureaucrat
+NAME = Bureaucrat01
 
 # Compiler and flags
 CC = clang++

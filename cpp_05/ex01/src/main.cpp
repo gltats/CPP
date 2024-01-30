@@ -21,9 +21,14 @@ void test(void)
 
 	std::cout << "\n____________test 1:____________" << std::endl;
 	try {
-		Form Form1("Lola", 8, 1);
+		Form Form1("Lola", 8, 2);
 		std::cout << Form1;
 		Boss.signForm(Form1);
+		std::cout << Form1;
+		Boss.decrementGrade();
+		std::cout << Boss;
+		std::cout << Form1;
+		Form1.beSigned(Boss);
 		Boss.signForm(Form1);
 	}
 	catch (std::exception &e) 
@@ -31,8 +36,9 @@ void test(void)
 		std::cout << e.what()  << std::endl;
 	}
 	std::cout << "____________________________________" << std::endl;
-	std::cout << "Note: can be signed" << std::endl;
+	std::cout << "Note: can be signed, decrements to two, signs it again and gives already signed" << std::endl;
 
+	std::cout << std::endl << "Remenber: " << Boss << std::endl;
 
 	std::cout << "\n____________test 2:____________" << std::endl;
 	try {
@@ -103,6 +109,7 @@ void test(void)
 	{
 		std::cout << e.what()  << std::endl;
 	}
+	std::cout << "____________________________________" << std::endl;
 	std::cout << "Note: can not be signed, Hexadecimal literal is 15140, 3990" << std::endl;
 }
 
