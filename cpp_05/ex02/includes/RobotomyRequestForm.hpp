@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cstdlib>
 #include <iostream>
 #include "AForm.hpp"
 
