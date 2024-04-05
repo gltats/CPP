@@ -10,73 +10,85 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Bureaucrat.hpp"
 
-int main(void)
+
+void test(void)
 {
 	std::cout << "\n____________test 1: John____________" << std::endl;
+	
 	try {
 		Bureaucrat bureaucrat("John", 50);
 		std::cout << bureaucrat;
 
-		bureaucrat.increment();
+		bureaucrat.incrementGrade();
 		std::cout << bureaucrat;
 
-		bureaucrat.decrement();
+		bureaucrat.decrementGrade();
 		std::cout << bureaucrat;
 		
 	} catch (const std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-	
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: Should not be exceptions, result is 50,49,50" << std::endl;
+
+
 	std::cout << "\n____________test 2: Matilde____________" << std::endl;
 	try {
-		Bureaucrat bureaucrat("Matilde", 151);
+		Bureaucrat bureaucrat("Matilde", 150);
 		std::cout << bureaucrat;
 
-		bureaucrat.increment();
+		bureaucrat.decrementGrade();
 		std::cout << bureaucrat;
 
-		bureaucrat.decrement();
+		bureaucrat.incrementGrade();
 		std::cout << bureaucrat;
 		
 	} catch (const std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: Should be exception, result is Grade too low" << std::endl;
 
-	std::cout << "\n____________test 3: Jorge____________" << std::endl;
+	std::cout << "\n____________test 2: Samuel____________" << std::endl;
 	try {
-		Bureaucrat bureaucrat("Jorge", 0);
+		Bureaucrat bureaucrat("Samuel", 1);
 		std::cout << bureaucrat;
 
-		bureaucrat.increment();
+		bureaucrat.incrementGrade();
 		std::cout << bureaucrat;
 
-		bureaucrat.decrement();
+		bureaucrat.decrementGrade();
 		std::cout << bureaucrat;
 		
 	} catch (const std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: Should be exception, result is Grade too high" << std::endl;
+
 
     std::cout << "\n____________test 4: Maria____________" << std::endl;
     try {
-        Bureaucrat bureaucrat("Maria", 140);
+        Bureaucrat bureaucrat("Maria", 1);
         std::cout << bureaucrat;
 
-        for (int i = 2; i < 200; i++) {
+        for (int i = 150; i > 0; i--) {
             try {
-                bureaucrat.increment();
+                bureaucrat.decrementGrade();
                 std::cout << bureaucrat;
             } catch (const std::exception& e) {
                 std::cerr << "Exception: " << e.what() << std::endl;
                 break; // Exit the loop when an exception occurs
             }
         }
-
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: Should Exit the loop when an exception occurs, low to high" << std::endl;
 
 	std::cout << "\n____________test 5: Anna____________" << std::endl;
     try {
@@ -85,7 +97,7 @@ int main(void)
 
         for (int i = 2; i < 200; i++) {
             try {
-                bureaucrat.increment();
+                bureaucrat.incrementGrade();
                 std::cout << bureaucrat;
             } catch (const std::exception& e) {
                 std::cerr << "Exception: " << e.what() << std::endl;
@@ -96,6 +108,13 @@ int main(void)
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
-	
+	std::cout << "____________________________________" << std::endl;
+	std::cout << "Note: Should Exit the loop when an exception occurs, high to low" << std::endl;
+
+}
+
+int main(void)
+{
+	test();
 	return 0;
 }

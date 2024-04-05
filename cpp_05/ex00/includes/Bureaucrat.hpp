@@ -27,15 +27,21 @@ class Bureaucrat {
 			public:
 				virtual const char *what() const throw();
 		};
+
+		//Canonical Form
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat &operator=(const Bureaucrat &copy);
 		~Bureaucrat();
-		const std::string getName() const;
+
+		//Mandatory part
+		std::string getName() const;
 		int getGrade() const;
-		void decrement();
+		void incrementGrade();
+		void decrementGrade();
 		void increment();
+		
 	private:
 		const std::string _name;
 		int _grade;

@@ -50,7 +50,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << this->_name << " says bye" << std::endl;
 }
 
-const std::string Bureaucrat::getName() const
+std::string Bureaucrat::getName() const
 {
 	return this->_name;
 }
@@ -60,17 +60,19 @@ int Bureaucrat::getGrade() const
 	return this->_grade;
 }
 
-void Bureaucrat::decrement()
+//as per the subject grade that ranges from 1 (highest possible grade) to 150 (lowest possible
+//grade) 
+void Bureaucrat::incrementGrade()
 {
-	if(this->_grade == 1)
-		throw GradeTooLowException();
+	if(this->_grade - 1 < 1)
+		throw GradeTooHighException();
 	else
 		this->_grade--;
 }
 
-void Bureaucrat::increment()
+void Bureaucrat::decrementGrade()
 {
-	if(this->_grade == 150)
+	if(this->_grade + 1 > 150)
 		throw GradeTooLowException();
 	else
 		this->_grade++;
@@ -78,12 +80,12 @@ void Bureaucrat::increment()
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is to high! Can only be between 1 and 150";
+	return "Grade is to high! Can only be between 1(heighest) and 150(lowest)";
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is to low! Can only be between 1 and 150";
+	return "Grade is to low! Can only be between 1(heighest) and 150(lowest)";
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat)
