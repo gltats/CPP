@@ -6,6 +6,7 @@
 #include <string>
 #include <exception>
 #include <unistd.h>
+#include <typeinfo>
 
 class Base 
 {
