@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <stdint.h>
 
 #include "Data.hpp"
 
