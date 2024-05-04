@@ -75,22 +75,47 @@ void BitcoinExchange::checkInputFile(const std::string &filename)
     {
         throw std::invalid_argument("Invalid file header.");
     }
-    //check if second line is empty
+    // check if second line is empty
     if (!getline(file, line))
     {
         throw std::invalid_argument("File does not have values.");
     }
-    //invalide file
-    if (line.find_first_not_of("0123456789-| \t\n") != std::string::npos)
+    // Process the second line here
+    try
     {
-        throw std::invalid_argument("Invalid file format.");
+        std::string date, value;
+        std::istringstream iss(line);
+        getline(iss, date, '|');
+        getline(iss, value, '|');
+        checkDate(date);
+
+        GivenData.date = date;
+
+        std::istringstream valueStream(value);
+        float floatValue;
+        if (!(valueStream >> floatValue))
+        {
+            std::cout << "Error: Invalid line" << std::endl;
+        }
+        checkValues(floatValue);
+        GivenData.value = floatValue;
+        calculateValue();
     }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    // rest of lines
     while (getline(file, line))
     {
         try
         {
             std::string date, value;
             std::istringstream iss(line);
+            if (line.find_first_not_of("0123456789.-| \t\n") != std::string::npos)
+            {
+                throw std::invalid_argument("Error: Invalid line");
+            }
             getline(iss, date, '|');
             getline(iss, value, '|');
             checkDate(date);
@@ -107,7 +132,6 @@ void BitcoinExchange::checkInputFile(const std::string &filename)
             }
             checkValues(floatValue);
             GivenData.value = floatValue;
-            btcPrice[date] = floatValue;
             calculateValue();
         }
         catch (const std::exception &e)
@@ -222,7 +246,7 @@ void BitcoinExchange::calculateValue()
         // decrement to the last element and print the value
         it--;
         double mult = GivenData.value * (*it).second;
-
+        // std::cout << "here" << mult << std::endl;
         // PRINT IT: 2011-01-03 => 3 = 0.9
         std::cout << std::setprecision(7) << GivenData.date << " => " << std::setprecision(7) << GivenData.value << " = " << std::setprecision(7) << mult << std::endl;
     }
@@ -239,6 +263,9 @@ void BitcoinExchange::calculateValue()
         if ((*it).first != dateStream.str())
             it--;
         double mult = GivenData.value * (*it).second;
+        // std::cout << "value1" << GivenData.value << std::endl;
+        // std::cout << "value2" << (*it).second << std::endl;
+        // std::cout << "here" << mult << std::endl;
 
         // PRINT IT: 2011-01-03 => 3 = 0.9
         std::cout << std::setprecision(7) << GivenData.date << " => " << std::setprecision(7) << GivenData.value << " = " << std::setprecision(7) << (mult) << std::endl;
